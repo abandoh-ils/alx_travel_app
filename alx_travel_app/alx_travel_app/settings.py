@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import environ
 import os
+import pymysql
+
+
+pymysql.version_info = (1, 4, 13, "final", 0)
+pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -92,7 +97,7 @@ DATABASES = {
         'HOST': env('DB_HOST', default='localhost'),
         'PORT': env('DB_PORT', default='3306'),
         'OPTIONS':{
-            'sql_mode': ['STRICT_TRANS_TABLES']
+            'sql_mode': 'STRICT_TRANS_TABLES',
         },
     }
     
