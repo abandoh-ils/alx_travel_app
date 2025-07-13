@@ -86,13 +86,13 @@ DATABASES = {
     
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': env('DB_NAME', default='alx_travel_db'),
+        'NAME': env('DB_NAME', default='alx_travel'),
         'USER': env('DB_USER', default='alx_dev'),
         'PASSWORD': env('DB_PASSWORD', default='alx_dev'),
         'HOST': env('DB_HOST', default='localhost'),
         'PORT': env('DB_PORT', default='3306'),
         'OPTIONS':{
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES"
+            'sql_mode': ['STRICT_TRANS_TABLES']
         },
     }
     
